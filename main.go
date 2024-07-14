@@ -27,6 +27,7 @@ func (r *Repositoty) CreateBook(context *fiber.Ctx) error {
 	book := Book{}
 
 	err := context.BodyParser(&book)
+	fmt.Println(book.Author)
 	if err != nil {
 		context.Status(http.StatusUnprocessableEntity).JSON(&fiber.Map{"message": "request failed"})
 		return err
